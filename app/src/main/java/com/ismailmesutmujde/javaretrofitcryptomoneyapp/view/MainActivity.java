@@ -2,11 +2,13 @@ package com.ismailmesutmujde.javaretrofitcryptomoneyapp.view;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.ismailmesutmujde.javaretrofitcryptomoneyapp.R;
+import com.ismailmesutmujde.javaretrofitcryptomoneyapp.adapter.RecyclerViewAdapter;
 import com.ismailmesutmujde.javaretrofitcryptomoneyapp.model.CryptoModel;
 import com.ismailmesutmujde.javaretrofitcryptomoneyapp.service.CryptoAPI;
 
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private String BASE_URL = "https://raw.githubusercontent.com";
     Retrofit retrofit;
     RecyclerView recyclerView;
+    RecyclerViewAdapter recyclerViewAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,10 +59,15 @@ public class MainActivity extends AppCompatActivity {
                     List<CryptoModel> responseList = response.body();
                     cryptoModels = new ArrayList<>(responseList);
 
-                    for (CryptoModel cryptoModel : cryptoModels) {
+                    // RecyclerView
+                    recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                    recyclerViewAdapter = new RecyclerViewAdapter(cryptoModels);
+                    recyclerView.setAdapter(recyclerViewAdapter);
+
+                    /*for (CryptoModel cryptoModel : cryptoModels) {
                         System.out.println(cryptoModel.currency);
                         System.out.println(cryptoModel.price);
-                    }
+                    }*/
                 }
             }
 
