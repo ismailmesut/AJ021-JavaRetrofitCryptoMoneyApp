@@ -2,6 +2,7 @@ package com.ismailmesutmujde.javaretrofitcryptomoneyapp.view;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<CryptoModel> cryptoModels;
     private String BASE_URL = "https://raw.githubusercontent.com";
     Retrofit retrofit;
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
         //https://api.nomics.com/v1/prices?key=2187154b76945f2373394aa34f7dc98a
         //https://raw.githubusercontent.com/atilsamancioglu/K21-JSONDataSet/master/crypto.json
+
+        recyclerView = findViewById(R.id.recyclerView);
 
         // Retrofit & JSON
         Gson gson = new GsonBuilder().setLenient().create();
