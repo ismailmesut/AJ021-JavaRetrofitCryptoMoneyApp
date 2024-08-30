@@ -1,7 +1,9 @@
-package com.ismailmesutmujde.javaretrofitcryptomoneyapp;
+package com.ismailmesutmujde.javaretrofitcryptomoneyapp.view;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.ismailmesutmujde.javaretrofitcryptomoneyapp.R;
 
 public class MainActivity extends AppCompatActivity {
 

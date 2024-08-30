@@ -1,4 +1,4 @@
-package com.ismailmesutmujde.javaretrofitcryptomoneyapp;
+package com.ismailmesutmujde.javaretrofitcryptomoneyapp.model;
 
 import com.google.gson.annotations.SerializedName;
 
